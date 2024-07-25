@@ -25,13 +25,13 @@ import one.digitalinnovation.gof.service.ClienteService;
 @RequestMapping("clientes")
 public class ClienteRestController {
 
-	@Autowired
+	@Autowired // will provide like a singleton instance
 	private ClienteService clienteService;
 
 	@GetMapping
 	public ResponseEntity<Iterable<Cliente>> buscarTodos() {
 		return ResponseEntity.ok(clienteService.buscarTodos());
-	}
+	}							// will inject the concrete cliente service implementation
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
