@@ -23,12 +23,12 @@ import one.digitalinnovation.gof.service.ViaCepService;
 public class ClienteServiceImpl implements ClienteService {
 
 	// Singleton: Injetar os componentes do Spring com @Autowired.
-	@Autowired
+	@Autowired // (1) implementation of buscarTodos()
 	private ClienteRepository clienteRepository;
-	@Autowired
+	@Autowired // (2) implementation to ajust inserirCliente
 	private EnderecoRepository enderecoRepository;
 	@Autowired
-	private ViaCepService viaCepService;
+	private ViaCepService viaCepService;// cliente http service
 	
 	// Strategy: Implementar os métodos definidos na interface.
 	// Facade: Abstrair integrações com subsistemas, provendo uma interface simples.
@@ -36,13 +36,13 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public Iterable<Cliente> buscarTodos() {
 		// Buscar todos os Clientes.
-		return clienteRepository.findAll();
+		return clienteRepository.findAll(); // (1)
 	}
 
 	@Override
 	public Cliente buscarPorId(Long id) {
 		// Buscar Cliente por ID.
-		Optional<Cliente> cliente = clienteRepository.findById(id);
+		Optional<Cliente> cliente = clienteRepository.findById(id);// return Optional because client may not exist
 		return cliente.get();
 	}
 
@@ -50,6 +50,7 @@ public class ClienteServiceImpl implements ClienteService {
 	public void inserir(Cliente cliente) {
 		salvarClienteComCep(cliente);
 	}
+
 
 	@Override
 	public void atualizar(Long id, Cliente cliente) {
@@ -66,6 +67,7 @@ public class ClienteServiceImpl implements ClienteService {
 		clienteRepository.deleteById(id);
 	}
 
+	// dry - don't repeat yourself
 	private void salvarClienteComCep(Cliente cliente) {
 		// Verificar se o Endereco do Cliente já existe (pelo CEP).
 		String cep = cliente.getEndereco().getCep();
