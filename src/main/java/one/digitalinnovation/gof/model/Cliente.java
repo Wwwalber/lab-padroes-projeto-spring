@@ -1,5 +1,6 @@
 package one.digitalinnovation.gof.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +12,11 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_cliente")
 	private Long id;
+	@Column(length = 50, nullable = false)
 	private String nome;
-	@ManyToOne
+	@ManyToOne // many < this one - one < another
 	private Endereco endereco;
 
 	public Long getId() {
