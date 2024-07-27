@@ -1,5 +1,7 @@
 package one.digitalinnovation.gof.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +34,10 @@ public class ClienteRestController {
 	public ResponseEntity<Iterable<Cliente>> buscarTodos() {
 		return ResponseEntity.ok(clienteService.buscarTodos());
 	}							// will inject the concrete cliente service implementation
+	@GetMapping("/ordenarNomesDesc")
+	public ResponseEntity<Iterable<Cliente>> encontreEordenePorNomeDesc(){
+		return ResponseEntity.ok(clienteService.encontreEordenePorNomeDesc());
+	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
@@ -55,4 +61,12 @@ public class ClienteRestController {
 		clienteService.deletar(id);
 		return ResponseEntity.ok().build();
 	}
+	/*
+	 * 
+    @GetMapping("/boasvindas/{name}")
+    public String boasVindas(@PathVariable String name){
+        return "Seja bem vindo(a) "+name;
+    }
+	 */
+
 }

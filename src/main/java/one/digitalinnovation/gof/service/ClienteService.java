@@ -1,5 +1,7 @@
 package one.digitalinnovation.gof.service;
 
+import java.util.List;
+
 import one.digitalinnovation.gof.model.Cliente;
 
 /**
@@ -20,5 +22,12 @@ public interface ClienteService {
 	void atualizar(Long id, Cliente cliente);
 
 	void deletar(Long id);
+
+	//Iterable<Cliente> findByOrderByNameAsc();
+	Iterable<Cliente> encontreEordenePorNomeDesc();
+	//Iterable<Cliente> findByOrderByNameDesc();
+
+	//List<Cliente> findByOrderByNameDesc();
+
 
 }

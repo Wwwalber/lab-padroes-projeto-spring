@@ -12,6 +12,7 @@ import one.digitalinnovation.gof.model.Endereco;
  * 
  * @see <a href="https://spring.io/projects/spring-cloud-openfeign">Spring Cloud OpenFeign</a>
  * @see <a href="https://viacep.com.br">ViaCEP</a>
+ * @see <a href="https://api.openweathermap.org/data/2.5>Openweather</a
  * 
  * @author falvojr
  */

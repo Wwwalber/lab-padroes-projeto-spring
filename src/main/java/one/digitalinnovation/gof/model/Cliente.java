@@ -15,7 +15,7 @@ public class Cliente {
 	@Column(name = "id_cliente")
 	private Long id;
 	@Column(length = 50, nullable = false)
-	private String nome;
+	private String name;
 	@ManyToOne // many < this one - one < another
 	private Endereco endereco;
 
@@ -27,12 +27,12 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Endereco getEndereco() {

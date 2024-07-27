@@ -39,6 +39,12 @@ public class ClienteServiceImpl implements ClienteService {
 		return clienteRepository.findAll(); // (1)
 	}
 
+
+	@Override
+	public Iterable<Cliente> encontreEordenePorNomeDesc() {
+		return clienteRepository.findByOrderByNameDesc();
+ 	}
+
 	@Override
 	public Cliente buscarPorId(Long id) {
 		// Buscar Cliente por ID.
