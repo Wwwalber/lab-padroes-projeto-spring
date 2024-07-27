@@ -25,9 +25,6 @@ public interface ClienteService {
 
 	//Iterable<Cliente> findByOrderByNameAsc();
 	Iterable<Cliente> encontreEordenePorNomeDesc();
-	//Iterable<Cliente> findByOrderByNameDesc();
-
-	//List<Cliente> findByOrderByNameDesc();
 
 
 }
